@@ -1,14 +1,11 @@
-
-
-const express = require('express');
-const handlers = require('./handlers')
+const express = require("express");
+const handlers = require("./handlers");
+const config = require("./config");
 
 const app = express();
 const port = 5000;
 
 app.use(express.json());
-
-
 
 /*
 
@@ -42,25 +39,16 @@ Routes
 
 */
 
-
-
-
-// User 
+// User
 app.get("/user/:id", handlers.getUsersById);
-app.post("/user",handlers.addUser)
+app.post("/user", handlers.addUser);
 
 // Payments
 app.post("/payment/:id", handlers.makeUserpayment);
-app.get("/payment/user/:userId", handlers.getUserpaymentById)
-
+app.get("/payment/user/:userId", handlers.getUserpaymentById);
 
 // Loan
 
 app.listen(port, () => {
   console.log(`Imalipay admin  is running on port ${port}.`);
 });
-
-
-
-  
-
